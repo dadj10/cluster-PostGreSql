@@ -1,0 +1,67 @@
+<div th:fragment="left-sidebar">
+	<aside class="main-sidebar sidebar-dark-primary elevation-4">
+		<!-- Brand Logo -->
+		<a th:href="@{/}" class="brand-link text-center"> <span
+			class="brand-text font-weight-light">CLUSTER</span>
+		</a>
+
+		<!-- Sidebar -->
+		<div class="sidebar">
+			<!-- Sidebar user panel (optional) -->
+			<div class="user-panel mt-3 pb-3 mb-3 d-flex">
+				<div class="info">
+					<!-- a href="#" class="d-block"
+						th:text="${session.userConnected.nom +' '+ session.userConnected.prenoms}"
+						th:unless="${session == null}"></a -->
+				</div>
+			</div>
+
+			<!-- Sidebar Menu -->
+			<nav class="mt-2">
+				<ul class="nav nav-pills nav-sidebar flex-column"
+					data-widget="treeview" role="menu" data-accordion="false">
+					<!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+
+					<!-- Tableau de bord ${active} ? active : ''-->
+					<li class="nav-item"><a th:href="@{/}" class="nav-link"
+						th:classappend="${(active_menu == '' || active_menu == 'accueil') ? 'active':''}">
+							<i class="nav-icon fas fa-tachometer-alt"></i>
+							<p>Tableau de bord</p>
+					</a></li>
+
+
+
+					<li class="nav-item has-treeview"
+						th:classappend="${(open_menu == 'role' || open_menu == 'utilisateur') ? 'menu-open':''}"><a
+						href="#" class="nav-link"
+						th:classappend="${(active_menu == 'role' || active_menu == 'utilisateur' || active_menu == 'adminagences' || active_menu == 'admincontentieux'  || active_menu == 'investisseurs'  || active_menu == 'collaborateurs' || active_menu == 'proprietaireterriens') ? 'active':''}">
+							<i class="nav-icon fa fa-users"></i>
+							<p>
+								Comptes Utilisateurs <i class="fas fa-angle-left right"></i>
+							</p>
+					</a>
+						<ul class="nav nav-treeview">
+							</a>
+
+							<li class="nav-item"><a th:href="@{/role}" class="nav-link"
+								th:classappend="${(active_menu == 'role') ? 'active':''}"> <i
+									class="far fa-circle nav-icon"></i>
+									<p>R&ocirc;les</p>
+							</a></li>
+
+							<li class="nav-item"><a th:href="@{/utilisateur}"
+								class="nav-link"
+								th:classappend="${(active_menu == 'utilisateur') ? 'active':''}">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Administrateurs</p>
+							</a></li>
+
+						</ul></li>
+				</ul>
+			</nav>
+			<!-- /.sidebar-menu -->
+		</div>
+		<!-- /.sidebar -->
+	</aside>
+</div>
